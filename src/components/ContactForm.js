@@ -15,23 +15,25 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="firstName">First Name*
-          <input
-            name="firstName"
-            placeholder="Edd"
-            ref={register({ required: true, maxLength: 3 })}
-          /></label>
+            <input
+              name="firstName"
+              placeholder="Edd"
+              ref={register({ required: true, maxLength: 3 })}
+            />
+          </label>
           {errors.firstName && (
             <p>Looks like there was an error: {errors.firstName.type}</p>
           )}
         </div>
 
         <div>
-          <label htmlFor="lastName">Last Name*</label>
-          <input
+          <label htmlFor="lastName">
+            Last Name*<input
             name="lastName"
             placeholder="Burke"
             ref={register({ required: true })}
           />
+          </label>
           {errors.lastName && (
             <p>Looks like there was an error: {errors.lastName.type}</p>
           )}
@@ -39,16 +41,17 @@ const ContactForm = () => {
 
         <div>
           <label htmlFor="email" placeholder="bluebill1049@hotmail.com">
-            Email*
+            Email*<input name="email" ref={register({ required: true })} />
           </label>
-          <input name="email" ref={register({ required: true })} />
           {errors.email && (
             <p>Looks like there was an error: {errors.email.type}</p>
           )}
         </div>
+          
         <div>
-          <label htmlFor="message">Message</label>
-          <textarea name="message" ref={register({ required: false })} />
+          <label htmlFor="message">
+            Message<textarea name="message" ref={register({ required: false })} />
+          </label>
         </div>
         {data && (
           <pre data-testid="submit-data" style={{ textAlign: "left", color: "white" }}>
