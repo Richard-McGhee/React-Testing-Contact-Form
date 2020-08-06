@@ -34,5 +34,15 @@
   },
   "devDependencies": {
     "mutationobserver-shim": "^0.3.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/__tests__/**",
+      "!**/index.js",
+      "!**/serviceWorker.js"
+    ]
   }
 }
