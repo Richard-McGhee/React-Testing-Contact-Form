@@ -17,7 +17,7 @@ test("Finds First Name placeholder text", ( () => {
     expect(fnamePHText).toBeInTheDocument()
 }))
 test("First Name Iput only allows 3 characters", async () => {
-    const { getByLabelText, getAllByText, getByRole } = render(<ContactForm />)
+    const { getByLabelText, getAllByText, getByRole, queryByTestId } = render(<ContactForm />)
     const fnameInput = getByLabelText(/first name/i)
     const submitButton = getByRole("button")
     // expect(submitButton).toBeInTheDocument
@@ -28,4 +28,5 @@ test("First Name Iput only allows 3 characters", async () => {
     await waitFor(() => {
         getAllByText(/Looks like there was an error/i)
     })
+    expect(queryByTestId("submit-data")).toBeFalsy()
 })
